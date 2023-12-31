@@ -36,7 +36,7 @@ Go can be easily downloaded at [GoDev](https://go.dev).
 ::data-table
 ---
 data: [{id: 1, version: '1.20.1', released: '2023-08-08'}, {id: 2, version: '1.20', released: '2023-02-01'}, {id: 3, version: '1.19', released: '2022-08-02'}]
-columns: [{key: 'version', name: 'Version'}, {key: 'released', name: 'Released At'}]
+columns: [{key: 'version', label: 'Version'}, {key: 'released', label: 'Released At'}]
 searchable: 'Versions'
 ---
 ::
