@@ -114,4 +114,4 @@ In summary, using [Laragon](https://laragon.org) is already enough, but some of 
 
 In the end, building BodyFits was a indeed valuable experience for me and the rest of my friends, we learned about when should we plan and build something, we learned about choosing the right tool, picking the right time, and other considerations.
 
-Thanks for reading this blog. This blog served as my diary. Sorry for my bad English too :v.
+Thanks for reading this blog. This blog served as my diary. Sorry for my bad English too.
