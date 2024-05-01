@@ -47,7 +47,7 @@ Well, it's fine! I am not complaining at all considering that I am a Web Develop
 
 Now enough about 2D Animation mainly because I am not working a lot in this course, you can say we decided to split each of our members tackling tasks focused on different courses. So for this, my guy [@AtnanAriAnderson](https://github.com/AtnanAriAnderson) is the lead project of 2D Animation. He knows more detail about what's going on in 2D Animation compared to me (I only work as an Editor there, using Capcut. The best software editor. It's much simpler and more productive compared to Premiere Pro when editing simple stuff).
 
-Apart from 2D animation we also have some other final exam or projects those are Networking and a simple web project. So this simple web project differs from the final project (that is web too) think of it as a project from a separate course. This simple web project focused on exploring and creating a simple CRUD web that uses native without a framework, etc. I finished the project using PHP and it was a breeze. Networking on the other hand requires us to build a network topology, but after some negotiations and became a Linux stuff instead. As a Linux user myself I completed the project pretty easily. Now comes, the final project that will be showcased at Expo too. A peak project so to speak. Introducing...
+Apart from 2D animation we also have some other final exams or projects which are Networking and a simple web project. So this simple web project differs from the final project (that is web too) think of it as a project from a separate course. This simple web project focused on exploring and creating a simple CRUD web that uses native without a framework, etc. I finished the project using PHP and it was a breeze. Networking on the other hand requires us to build a network topology, but after some negotiations, and became a Linux stuff instead. As a Linux user myself I completed the project pretty easily. Now comes, the final project that will be showcased at Expo too. A peak project so to speak. Introducing...
 
 ## Chapter 3: Rent N Go
 
@@ -59,17 +59,17 @@ Then what with the Stack? Why do we choose Go and React? is it because our app n
 
 After many rounds, I randomly get an idea about making a bet with my friends. Since my friends were still motivated and they were kind of lost in what tech stack to learn, I decided to bring up Go into tables. So we begin a match where when they lose against me they need to learn Go. And that's how Go gets selected for the tech stack to the Backend.
 
-We spent our time learning Go using this tutorial [Dasar Pemograman Golang[ID]](https://dasarpemrogramangolang.novalagung.com/1-berkenalan-dengan-golang.html) a good read if you are new to Go too. Then for the framework we choose [GoFiber](https://gofiber.io/). Why? because it's the fastest. The website even promotes itself as the fast web framework, they even provide the benchmark. Last, for the ORM we're going with [GORM](https://gorm.io/) simply because it's the most popular ORM for GO. As for frontend, we stick to React as most of my friends are more comfortable using it.
+We spent our time learning Go using this tutorial [Dasar Pemograman Golang[ID]](https://dasarpemrogramangolang.novalagung.com/1-berkenalan-dengan-golang.html). A good read if you are new to Go too. Then for the framework we choose [GoFiber](https://gofiber.io/). Why? because it's the fastest. The website even promotes itself as the fast web framework, they even provide the benchmark. Last, for the ORM we're going with [GORM](https://gorm.io/) simply because it's the most popular ORM for GO. As for the front end, we stick to React as most of my friends are more comfortable using it.
 
-So we begin learning Go and discussing the features. Car Rental is a basic things but a car rental that provides driver and tour? Well we have fewer in markets for those service (it does exist). So eventually, we came up with Car Rental, Car + Driver, Tour (which also allow you to book the driver and car). Notice each of the feature actually built upon each other, and only Car feature that can run individually. If represented on chain `Tour -> Driver -> Car`.
+So we begin learning to Go and discussing the features. Car Rental is a basic thing but a car rental that provides driver and tour? Well, we have fewer markets for those services (it does exist). So eventually, we came up with Car Rental, Car + Driver, and Tour (which also allows you to book the driver and car). Notice each of the features actually built upon each other, and only the Car feature can run individually. If represented on chain `Tour -> Driver -> Car`.
 
 ## Chapter 4: Structuring the Project
 
-Okay, we have decided the features and the tech stacks to use. But how to structure the project? None of us were experienced in building Backend using Go. In fact this project become our first time in building Backend on Go and our first Go Project as well (Damn, should have started with Todo...). And simply enough, because of that we came up with quite some problem. First we need to know how "Go" modules works.
+Okay, we have decided on the features and the tech stacks to use. But how to structure the project? None of us were experienced in building Backend using Go. In fact, this project becomes our first time building Backend on Go and our first Go Project as well (Damn, should have started with Todo...). And simply enough, because of that, we came up with quite some problems. First, we need to know how "Go" modules work.
 
-In Go every file have a namespace, these are represented by the `package` keyword whereas `package main` represents the root of the project. So usually Go Devs would build an entry point let's say `main.go` and put their `package main` there. Then afterwards, they can put the rest of their code in the folder. For instance folder utils will have `package utils` and so on.
+In Go every file has a namespace, these are represented by the `package` keyword whereas `package main` represents the root of the project. So usually Go Devs would build an entry point let's say `main.go` and put their `package main` there. Then afterward, they can put the rest of their code in the folder. For instance, folder utils will have `package utils` and so on.
 
-Now in Go, every declaration are bound to its package unless the name starts with capital letter first. That is the convention Go uses to mark as public and export the declaration. Think of it similarly to `public` and `export` in other language. In Go both of these declarations are combined by putting Capital First on declaration name. 
+Now in Go, every declaration is bound to its package unless the name starts with a capital letter first. That is the convention Go uses to mark as public and export the declaration. Think of it similarly to `public` and `export` in another language. In Go both of these declarations are combined by putting Capital First on the declaration name. 
 
 ```go[file.go]
 func Test() {} // exported
@@ -81,7 +81,7 @@ type User struct {
 }
 ```
 
-and each of these declaration they're usually bound to it's package. So in `package main` you can't have two function with same name even though you define them in different file. Now because of that in order to get such behaviour these directory structure were used in our project:
+and each of these declarations is usually bound to its package. So in `package main` you can't have two functions with the same name even though you define them in different files. Now because of that in order to get such behavior this directory structure were used in our project:
 
 - controller
   - controllerName
@@ -89,12 +89,12 @@ and each of these declaration they're usually bound to it's package. So in `pack
     - request.go
     - *_service.go
 
-You can see the rest on [Rent N Go Backend](https://github.com/albetnov/Rent-N-Go-Backend). It works well, really. However the problem is within the root we defined many Go Package which are not really some problem it's just in order to run it, we need to use `go run *.go`. It compiles fun though. However some of these file are actually not related to the project itself. CLI Helper such as `migrate` to migrate the database and `seeder` to fill fake data to the database doens't have to be compiled as these are only used in development environment.
+You can see the rest on [Rent N Go Backend](https://github.com/albetnov/Rent-N-Go-Backend). It works well, really. However the problem is within the root we defined many Go Packages which are not really some problem it's just in order to run it, we need to use `go run *.go`. It compiles fine though. However, some of these files are actually not related to the project itself. CLI Helper such as `migrate` to migrate the database and `seeder` to fill fake data to the database don't have to be compiled as these are only used in the development environment.
 
-Then we also introduced `kernel.go` it's more like a Bootstrapper so might be better to name it `bootstrap.go` instead. In kernel, we perform all the registrations required for validation, before, after hooks, and etc. We also introduced Hooks there to be executed before any handler passed to Fiber and then afterHook to executes after Fiber done handling. So in before hook we can bootstrap stuff such as Database and etc. Kernel also bootstraps and apply any configuration the app have.
+Then we also introduced `kernel.go` it's more like a Bootstrapper so might be better to name it `bootstrap.go` instead. In kernel, we perform all the registrations required for validation, before, after hooks, and etc. We also introduced Hooks there to be executed before any handler passed to Fiber and then afterHook to execute after Fiber is done handling. So before hook, we can bootstrap stuff such as Database, etc. The kernel also bootstraps and applies any configuration the app has.
 
-The `server.go` focused on building the Fiber App. Putting any middleware we want to use, mapping routes, and registering and running the hooks. And then, because we're using a minimal framework such as Fiber we need to manually setup our own migrator and seeder for the database and resulting in command such as: `go run *.go migrate` and `go run *.go seed`. Not the best approach but work.
+The `server.go` focused on building the Fiber App. Putting any middleware we want to use, mapping routes, and registering and running the hooks. And then, because we're using a minimal framework such as Fiber we need to manually set up our own migrator and seeder for the database resulting in commands such as: `go run *.go migrate` and `go run *.go seed`. Not the best approach but works.
 
-We also connects GORM and GORM Gen with the database (MySQL), setting up Go Playground to validate our payload, integrating fiber locals, and much more. Some of shared logic are placed within `Repositories` these folder contains Database Operations Layer for the app, and then the rest of the structure using MVC model.
+We also connect GORM and GORM Gen with the database (MySQL), setting up Go Playground to validate our payload, integrating fiber locals, and much more. Some of the shared logic is placed within `Repositories` These folder contains the Database Operations Layer for the app, and then the rest of the structure using the MVC model.
 
 > To be continued in: [Rent N Go (Part 2)](https://albetnv.me/blogs/rent-n-go-part-2)
