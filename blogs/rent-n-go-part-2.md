@@ -1,8 +1,8 @@
 ---
 title: Rent N Go (Part 2)
-description: The continuation of the previous Rent N Go (Part 1) Blog. Rent N Go. The second iteration of our Expo App. Rent-N-Go offers a variety of services for car rental specific. It features Car Rental, Driver, and Tour. This blog is about the creation of Rent-N-Go, why Car Rental, how we build it, why it uses Go, and many more.
+description: The continuation of the previous Rent N Go (Part 1) Blog. Rent N Go. The second iteration of our Expo App. Rent-N-Go offers a variety of services for car rental. It features Car Rental, Driver, and Tour. This blog is about the creation of Rent-N-Go, why Car Rental, how we build it, why it uses Go and many more.
 categories: [3]
-collections: [2]
+collections: [2, 3]
 created_at: 2024-05-01
 updated_at: false
 archived: false
@@ -84,7 +84,7 @@ A better approach would be creating a separate API that takes Form Data solely j
 
 Rent N Go takes the payload approach where an ID is required in the payload to upload the photo since we're only using it in the Profile menu which happens to make all the requests become some sort of like "Edit" because you need to register to have a profile and this register is where the form data is submitted.
 
-Okay, the Image Upload is solved, right? Well not really, we still run into validation issues. Image Upload should only accept *images* not other files. For that, we need to use a library [Mimetype](github.com/gabriel-vasile/mimetype) to help us check the mime types of the user-uploaded image to ensure it is an image. Now that the format validation is done, the next thing to do is Size Validation. We don't want our servers to have gigabytes usage of storage because some naughty user decided to upload large images. To do it, we can set Global settings for Fiber to limit the max file upload size and interrupt if the received file starts to grow bigger than the limit.
+Okay, the Image Upload is solved, right? Well not really, we still run into validation issues. Image Upload should only accept *images* not other files. For that, we need to use a library [Mimetype](https://github.com/gabriel-vasile/mimetype) to help us check the mime types of the user-uploaded image to ensure it is an image. Now that the format validation is done, the next thing to do is Size Validation. We don't want our servers to have gigabytes usage of storage because some naughty user decided to upload large images. To do it, we can set Global settings for Fiber to limit the max file upload size and interrupt if the received file starts to grow bigger than the limit.
 
 But then, can we dynamically adjust the max uploaded files based on the API Routes? The answer is yes, but tricky. First of all, we need to set a large max upload size globally and then in the API, we need to receive the entire file before we can validate the size. So assuming I set the max upload to 10MB, and I want route `/image/upload` to have a 5MB size limit. I would have to accept the entire 10 MB file and store it somewhere in the buffer before I check the size and reject the request. So I decided to just put a global limit and not have to deal with dynamic max upload files based on routes.
 
@@ -112,9 +112,9 @@ Since the app is SPA, we need some way to change the title. For that [React Helm
 
 ### Creating the Order Wizard
 
-Creating an Order Wizard is quite a pain. In url `/order` the view can change based on the last state of the user interaction with their order. This basically means for every step the user has done we need to keep track of it. So we used Zustand and localStorage to initialize the default value. For every change in step, we will trigger Zustand action to save to both global store and localStorage, allowing us to persist the step and data the user has filled in. Temporarily in localStorage though. So, if the user opened their cart in different browser. They will keep reset from first flow.
+Creating an Order Wizard is quite a pain. In url `/order` the view can change based on the last state of the user interaction with their order. This basically means for every step the user has done we need to keep track of it. So we used Zustand and localStorage to initialize the default value. For every change in step, we will trigger Zustand action to save to both global store and localStorage, allowing us to persist the step and data the user has filled in. Temporarily in localStorage though. So, if the user opened their cart in a different browser. They will keep reset from the first flow.
 
-Each of the flow are implement as separate component where JSX Conditionals take place to render them accordingly with the current global state position. Afterwards, we also want to fake the callback mechanism of Payment Gateway while having no actual payment gateaway implemented. To do that, we create a fake UUID and stored them within localStorage of the user. Then, we will redirect them to the `/order/process/${uuid}` page where it takes UUID as the parameter. Of course, the check literraly just:
+Each of the flows is implemented as a separate component where JSX Conditionals take place to render them accordingly with the current global state position. Afterward, we also want to fake the callback mechanism of the Payment Gateway while having no actual payment gateway implemented. To do that, we create a fake UUID and store it within the localStorage of the user. Then, we will redirect them to the `/order/process/${uuid}` page where it takes UUID as the parameter. Of course, the check literally just:
 
 ```ts[ProcessOrder.tsx]
 if (localStorage.getItem(key)) {
@@ -122,12 +122,12 @@ if (localStorage.getItem(key)) {
 }
 ```
 
-But hey, we kind of replicate it. If the localStorage does not exist the order won't proceed! Really though the workaround of this fake order process are just adding the key manually to your localStorage, then access the url with parameter of the value of the localStorage you just added earlier.
+But hey, we kind of replicate it. If the localStorage does not exist the order won't proceed! Really though the workaround of this fake order process is just adding the key manually to your localStorage, then accessing the URL with the parameter of the value of the localStorage you just added earlier.
 
 ### Implementing Dropzone
 
-In the profile, you can put your driver license and your ID there. The UI however require you to have a drag and drop interface and also a text with a link to manually pick the file. In order to implement this I use [React Dropzone](https://react-dropzone.js.org/) library. Which have awesome features out of the box and allows me to quickly finish the design.
+In the profile, you can put your driver's license and your ID there. The UI however requires you to have a drag-and-drop interface and also a text with a link to manually pick the file. In order to implement this I use [React Dropzone](https://react-dropzone.js.org/) library. Which have awesome features out of the box and allow me to quickly finish the design.
 
-Alright. That's all about the Frontend!
+Alright. That's all about the front end!
 
 > To be continued in [Rent N Go Part 3](https://albetnv.me/blogs/rent-n-go-part-3)
