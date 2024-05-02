@@ -1,8 +1,8 @@
 ---
 title: Rent N Go (Part 1)
-description: Rent N Go. The second iteration of our Expo App. Rent-N-Go offers a variety of services for car rental specific. It features Car Rental, Driver, and Tour. This blog is about the creation of Rent-N-Go, why Car Rental, how we build it, why it uses Go, and many more.
+description: Rent N Go. The second iteration of our Expo App. Rent-N-Go offers a variety of services for car rental. It features Car Rental, Driver, and Tour. This blog is about the creation of Rent-N-Go, why Car Rental, how we build it, why it uses Go and many more.
 categories: [3]
-collections: [2]
+collections: [2, 3]
 created_at: 2024-04-20
 updated_at: false
 archived: false
@@ -53,7 +53,7 @@ Apart from 2D animation we also have some other final exams or projects which ar
 
 So what's the start of Rent N Go? why car rental out of sudden? why we're not continuing BodyFits from the previous semester? Well, the answers to these questions are actually pretty simple, it's mainly because BodyFits has a lot of issues and bugs. In case I haven't told you in the previous blog, it's a mess. At the start, I spent some minutes trying to get BodyFits to work, and eventually it did though. However, going back to it... uh... nah. Because of that we thought to create something new and decided to go with Rent N Go.
 
-Then what with the Stack? Why do we choose Go and React? is it because our app name is Rent N Go? The answer of course **not**. Rather... 
+Then what with the Stack? Why do we choose Go and React? is it because our app name is Rent N Go? The answer, of course, **not**. Rather... 
 
 > As the evening sky painted itself in shades of orange and purple, me and my friends decided to make our way to Badminton Stadium. To play some game.
 
@@ -81,7 +81,7 @@ type User struct {
 }
 ```
 
-and each of these declarations is usually bound to its package. So in `package main` you can't have two functions with the same name even though you define them in different files. Now because of that in order to get such behavior this directory structure were used in our project:
+and each of these declarations is usually bound to its package. So in `package main` you can't have two functions with the same name even though you define them in different files. Now because of that in order to get such behavior this directory structure was used in our project:
 
 - controller
   - controllerName
@@ -89,12 +89,12 @@ and each of these declarations is usually bound to its package. So in `package m
     - request.go
     - *_service.go
 
-You can see the rest on [Rent N Go Backend](https://github.com/albetnov/Rent-N-Go-Backend). It works well, really. However the problem is within the root we defined many Go Packages which are not really some problem it's just in order to run it, we need to use `go run *.go`. It compiles fine though. However, some of these files are actually not related to the project itself. CLI Helper such as `migrate` to migrate the database and `seeder` to fill fake data to the database don't have to be compiled as these are only used in the development environment.
+You can see the rest on [Rent N Go Backend](https://github.com/albetnov/Rent-N-Go-Backend). It works well, really. However the problem is within the root we defined many Go Packages which are not really some problem it's just in order to run it, we need to use `go run *.go`. It compiles fine though. However, some of these files are actually not related to the project itself. CLI Helper such as `migrate` to migrate the database and `seeder` to fill fake data to the database doesn't have to be compiled as these are only used in the development environment.
 
-Then we also introduced `kernel.go` it's more like a Bootstrapper so might be better to name it `bootstrap.go` instead. In kernel, we perform all the registrations required for validation, before, after hooks, and etc. We also introduced Hooks there to be executed before any handler passed to Fiber and then afterHook to execute after Fiber is done handling. So before hook, we can bootstrap stuff such as Database, etc. The kernel also bootstraps and applies any configuration the app has.
+Then we also introduced `kernel.go` it's more like a Bootstrapper so might be better to name it `bootstrap.go` instead. In kernel, we perform all the registrations required for validation, before, after hooks, and etc. We also introduced Hooks there to be executed before any handler passed to Fiber and then afterHook to execute after Fiber is done handling. So before hook, we can bootstrap stuff such as databases, etc. The kernel also bootstraps and applies any configuration the app has.
 
 The `server.go` focused on building the Fiber App. Putting any middleware we want to use, mapping routes, and registering and running the hooks. And then, because we're using a minimal framework such as Fiber we need to manually set up our own migrator and seeder for the database resulting in commands such as: `go run *.go migrate` and `go run *.go seed`. Not the best approach but works.
 
-We also connect GORM and GORM Gen with the database (MySQL), setting up Go Playground to validate our payload, integrating fiber locals, and much more. Some of the shared logic is placed within `Repositories` These folder contains the Database Operations Layer for the app, and then the rest of the structure using the MVC model.
+We also connect GORM and GORM Gen with the database (MySQL), setting up Go Playground to validate our payload, integrating fiber locals, and much more. Some of the shared logic is placed within `Repositories` This folder contains the Database Operations Layer for the app, and then the rest of the structure using the MVC model.
 
 > To be continued in: [Rent N Go (Part 2)](https://albetnv.me/blogs/rent-n-go-part-2)
