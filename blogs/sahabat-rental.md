@@ -17,17 +17,17 @@ Yet again another final semester app will later be showcased at the Expo. Sahaba
 
 <!--more-->
 
-# Quick Look
+## Quick Look
 
 ![Sahabat Rental](https://www.albetnv.me/_vercel/image?url=%2Fprojects%2Fsr_home.webp&w=640&q=100)
 
 As you can see in the glance above. Sahabat Rental is a financial management app made specifically to cover Car Rental only.
 
-# Chapter 1: Why Sahabat Rental?
+## Chapter 1: Why Sahabat Rental?
 
 Last semester, we decided to pick Car Rental for our future reference in building an app for campus assignments in the future, and this is also the same reason why we decided to make the financial app for it. So in the third semester, we have a course about accounting so that's why we have to build an app based on the course. The project itself is the final project of joint courses between accounting, web, and database courses. Because of that, we consider creating a financial app for rental management will be great. So then, the journey begins!
 
-# Chapter 2: Understanding The Requirements
+## Chapter 2: Understanding The Requirements
 
 We have first to focus on the target and how the app gonna shape before actually building. Who will be the customers? can everyone just directly be our customer? Will we host the entire infrastructure and users just use them? or should we make it specific?
 
@@ -42,27 +42,27 @@ So far, we managed to conclude the requirements:
 
 and as I already mentioned many times, Laravel is a fitting role for this as I don't have to set up painful stuff like connecting ORM, creating API, creating migration and seeding interface, configuring bundles, pain, pain, and many other pains.
 
-# Chapter 3: Building The App
+## Chapter 3: Building The App
 
 Building the app is straightforward, what is not is my knowledge about business finances (moreover in car rental), and accounting. Yes, I am clueless. I have no idea how to make a proper report! I am clueless! There are also minimum criteria where of reports our app needs to make around 3: balance, cash flow, and one more thing that I forgot. Also, there are account numbers? and other accounting stuff that I don't know about.
 
 So for a few weeks, I decided to create the car module with colors where it has a separate stock. Also, the stock management is where each of the stock movements is being recorded there, I honestly think the stock management has some flaws in the flow but I can't remember them. Typical. With the power of Blade Components + Alpine, I enjoyed a swift and smooth development and easily achieved what I wanted, of course without hydration issues. Just kidding.
 
-Combine them with an Eloquent relationship and bam I got the Stock Movement and the car finally connected to each other (also the colors). Nice. A good start. Now that the baseline is complete, the next thing to create will be the financial feature and that is transaction. I decided to split the transaction into two parts Expenses and Earnings so ~~ that we have more menu in the sidebar!~~ I can easily manage them since they have their own table anyway. The earnings will be connected to the order which includes the car while the expense is not. It's quite easy to create them since they are similar to the car module after all. But I removed the ability to edit because ~~it's cumbersome to work for~~ most transactions made should stay as is.
+Combine them with an Eloquent relationship and bam I got the Stock Movement and the car finally connected (also the colors). Nice. A good start. Now that the baseline is complete, the next thing to create will be the financial feature and that is transaction. I decided to split the transaction into two parts Expenses and Earnings so ~~ that we have more menu in the sidebar!~~ I can easily manage them since they have their own table anyway. The earnings will be connected to the order which includes the car while the expense is not. It's quite easy to create them since they are similar to the car module after all. But I removed the ability to edit because ~~it's cumbersome to work for~~ most transactions made should stay as is.
 
-Then what about the report? well, apparently my lecturer decided to ease up the difficulties where the app should be as easy to use even for those with no accounting background. So that means, I can create the app as I used to! nice! I don't have to implement the sequel of Accurate.
+Then what about the report? well, my lecturer decided to ease up the difficulties where the app should be as easy to use even for those with no accounting background. So that means, I can create the app as I used to! nice! I don't have to implement the sequel of Accurate.
 
-# Chapter 4: The Code Review
+## Chapter 4: The Code Review
 
 In this project, I prefer to experiment with something that I am still lacking in Laravel Framework, including learning new features that are available for Laravel 10 and some that I haven't tried yet.
 
-## The Blade Components
+### The Blade Components
 
 The Blade Components are powerful and appealing features of Blade in my opinion. The syntax for the markup is quite similar to Vue. You would declare a component using `<x-name>` where you change the name to the file name of your component file. You can pass the props as how you do it with HTML but use special syntax like this `:attribute` to pass PHP value within it. Nice!
 
 The component also already supports attribute inheritance so all you need to do is just `{{ $attributes }}` and that's it. You can even merge them or apply conditional classes! how convenient! With that, I created some components like alerts, auth, layouts, button, card, and many many more.
 
-## Macroable Trait
+### Macroable Trait
 
 In almost Laravel API they usually include the `Macroable` trait. This trait is powerful. It's like you can mixin a class right in runtime! However, it does lacking the IDE support and documentation as you would have to edit the phpdoc in the vendor folder directly which is just not recommended. Don't do that. Please don't push your vendor to git.
 
@@ -80,7 +80,7 @@ RedirectResponse::macro('alert', function (string $status, string $message) {
 back()->alert(); // since back is instance of RedirectResponse
 ```
 
-## Vite is noice
+### Vite is noice
 
 Vite is really convenient, to bundle all my CSS and JS assets I just need to do (combined with `laravel-vite-plugin`!):
 
@@ -114,17 +114,17 @@ export default defineConfig({
 });
 ```
 
-## View Composer
+### View Composer
 View Composer is a saver to help me reduce many duplications of page meta-data. Such as breadcrumbs and titles.
 This allowed me to keep the focus on providing the data that I really needed rather than having to pass each page meta-data on each page available.
 
-## Translation
+### Translation
 
-The app also come with Indonesian, English, and Chinese Mandarin features taking advantage of `app()->setLocale` and `app()->getLocale`!
+The app also comes with Indonesian, English, and Chinese Mandarin features taking advantage of `app()->setLocale` and `app()->getLocale`!
 
 That's all for the code reviews!
 
-# The Expo Day
+## The Expo Day
 
 Finally, on the day of the Expo where as usual we introduce our app to the guests from outside and the campus itself. This Expo is different than the previous one! since we don't have to present every time! We can just present when it's our time to showcase! A lot of time-saver and boredom-saver! Considering how boring it is previous Expo was I hope this one is not!
 
@@ -134,8 +134,8 @@ The sky is sunny, the morning atmosphere feels so good and of course, I know it 
 
 So I just halt it for a few minutes! Later, after arriving we quickly set up a bit, and the clock shows 2 PM. The session is now shifting to Third Semester Projects and things started up quite great, the website functions as it should, though we do find multiple bugs (why always like this? I swear we have checked thoroughly together last time!):
 
--	Sidebar is not scrollable on screen with fewer pixel densities (I guess?)
--	Unable to create a report when there’s no data at the selected date range.
+- The sidebar is not scrollable on screen with fewer pixel densities (I guess?)
+- Unable to create a report when there’s no data at the selected date range.
 
 I managed to fix the issue on the same day quickly and locally first. After that, we eventually met some of the guests who were awesome in my opinion! Giving us some advice and improvement for the future! Some of the guests also told me to choose my words more wisely (not in bad terms) like instead of saying parallelism I should say concurrent.
 The sidebar is pretty easy just add overflow:
@@ -147,7 +147,7 @@ The sidebar is pretty easy just add overflow:
 } 
 ```
 
-As for the report, the issue is pretty simple, we have some type errors:
+As for the report, the issue is pretty simple, we have some types errors:
 ```php
 // Models/Earnings.php && Models/Expenses.php
 public function price() {
