@@ -15,7 +15,7 @@ archived: false
 
 ## Quick Summary
 
-Previously in the [Rent N Go Part 1](https://www.albetnv.me/blogs/rent-n-go-part-1) I shared about how the project will be structured and what kind of tech stack is used on the project (Fiber, GORM, React). I also mentioned what project we building at that time. But for now, let's continue our focus with the Rent N Go App.
+Previously in the [Rent N Go Part 1](/blogs/rent-n-go-part-1) I shared about how the project will be structured and what kind of tech stack is used on the project (Fiber, GORM, React). I also mentioned what project we building at that time. But for now, let's continue our focus with the Rent N Go App.
 
 In case you don't know what Rent N Go is, think of it as a Rental Cars app (Generic). The app features core functionality such as Car Rental of course with additional two features Driver, and Tour. Allowing you as a customer to rent a car, with a driver, with a tour where the destination has been taken care of by us while still remaining private. The app has 2 roles, a customer which ability I have mentioned earlier, and an Admin who can manage the website entirely (adding/removing cars, tours, drivers, etc).
 
@@ -130,4 +130,4 @@ In the profile, you can put your driver's license and your ID there. The UI howe
 
 Alright. That's all about the front end!
 
-> To be continued in [Rent N Go Part 3](https://albetnv.me/blogs/rent-n-go-part-3)
+> To be continued in [Rent N Go Part 3](/blogs/rent-n-go-part-3)
