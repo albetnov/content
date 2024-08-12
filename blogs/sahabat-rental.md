@@ -19,7 +19,7 @@ Yet again another final semester app will later be showcased at the Expo. Sahaba
 
 ## Quick Look
 
-:custom-image{alt="Sahabat Rental" src="https://res.cloudinary.com/dltzvdmck/image/upload/v1723434286/blogs/zbsclqcm0bducls1i7z8.webp")
+:custom-image{alt="Sahabat Rental" src="https://res.cloudinary.com/dltzvdmck/image/upload/v1723434286/blogs/zbsclqcm0bducls1i7z8.webp"}
 
 As you can see at the glance above, Sahabat Rental is a financial management app made specifically to cover Car Rentals only.
 
