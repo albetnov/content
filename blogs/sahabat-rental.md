@@ -13,25 +13,25 @@ archived: false
 
 :cover-image{src="/blogs/ajxdedzkrk9cj45snmk7.jpg" alt="Sahabat Rental"}
 
-Yet again another final semester app will later be showcased at the Expo. Sahabat Rental. Like the thumbnail, this app is about the Financial Management of a Rental Service Provider. Consider it an add-on to our main app or a spin-off or something. The app will mainly consist of fields, data, and reports. Not really an app to be presented or used by the customer rather than by the Car Rental Provider themselves.
+Yet again another final semester app will later be showcased at the Expo. Sahabat Rental. Like the thumbnail, this app is about the Financial Management of a Rental Service Provider. Consider it an add-on to our main app or a spin-off or something. The app will mainly consist of fields, data, and reports. It is not really an app to be presented or used by the customer rather than the Car Rental Provider themselves.
 
 <!--more-->
 
 ## Quick Look
 
-![Sahabat Rental](https://www.albetnv.me/_vercel/image?url=%2Fprojects%2Fsr_home.webp&w=640&q=100)
+:custom-image{alt="Sahabat Rental" src="https://res.cloudinary.com/dltzvdmck/image/upload/v1723434286/blogs/zbsclqcm0bducls1i7z8.webp")
 
-As you can see in the glance above. Sahabat Rental is a financial management app made specifically to cover Car Rental only.
+As you can see at the glance above, Sahabat Rental is a financial management app made specifically to cover Car Rentals only.
 
 ## Chapter 1: Why Sahabat Rental?
 
-Last semester, we decided to pick Car Rental for our future reference in building an app for campus assignments in the future, and this is also the same reason why we decided to make the financial app for it. So in the third semester, we have a course about accounting so that's why we have to build an app based on the course. The project itself is the final project of joint courses between accounting, web, and database courses. Because of that, we consider creating a financial app for rental management will be great. So then, the journey begins!
+Last semester, we decided to pick Car Rental for our future reference in building an app for campus assignments in the future, and this is also the same reason why we decided to make the financial app for it. So in the third semester, we have an accounting course, so we have to build an app based on the course. The project itself is the final project of joint courses between accounting, web, and database courses. Because of that, we consider creating a financial app for rental management will be great. So then, the journey begins!
 
 ## Chapter 2: Understanding The Requirements
 
 We have first to focus on the target and how the app gonna shape before actually building. Who will be the customers? can everyone just directly be our customer? Will we host the entire infrastructure and users just use them? or should we make it specific?
 
-Considering the requirements of passing the current semester, we had to work together with other businesses. This means we already have our customers, we will only have one customer and thus, Sahabat Rental *will be a fully customized app made for them*. Now that we have it figured out, the next is how we handle the access? since the app is customized and built for one customer only then only their internals would use them, therefore we decided to just have a single role and landing page. Since the app is also mostly about finance meaning most of the UI will consist of forms and input. Therefore, we can stick to a simple admin design.
+Considering the requirements of passing the current semester, we had to work together with other businesses. This means we already have our customers, we will only have one customer and thus, Sahabat Rental *will be a fully customized app made for them*. Now that we have it figured out, the next is how we handle the access. since the app is customized and built for one customer only then only their internals would use them, therefore we decided to just have a single role and landing page. Since the app is also mostly about finance meaning most of the UI will consist of forms and input. Therefore, we can stick to a simple admin design.
 
 Most of the contents will also have minimal interactivity so we can eliminate the need to use interactivity frameworks/libraries like React, Vue, etc. Let's just stick with my favorite framework, Laravel, and my buddy Blade. Since we still need a bit of interactivity we will add AlpineJS for a bit of spice. Little but powerful. Then for the content, we decided to cover features such as car (including variants/colors), customer, stock, transaction (earning & expense), and finally report. So because of our features, a lot of our data will likely to tightly coupled (in relationships and such) so we need a powerful ORM like Eloquent built-in baby.
 
